@@ -1,0 +1,13 @@
+<%= form_for @movie do |f| %>
+  <p>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :rating %>
+    <%= f.text_field :rating %>
+  </p>
+  <p>
+    <%= f.submit 'Update movie' %>
+  </p>
+<% end %>
