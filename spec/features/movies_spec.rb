@@ -33,4 +33,21 @@ feature 'CRUD movies' do
     expect(page).to_not have_content 'Frozen'
     expect(page).to_not have_content 3
   end
+
+  scenario 'User can delete a movie from list' do
+    visit '/'
+    expect(page).to have_content 'Welcome'
+    click_on 'Add a movie'
+    fill_in 'Title', with: 'Frozen'
+    fill_in 'Rating', with: 3
+    click_on 'Add movie'
+    expect(page).to have_content 'Frozen'
+    expect(page).to have_content 3
+    click_on 'Frozen'
+    expect(page).to have_content 'Frozen'
+    expect(page).to have_content 3
+    click_on 'Delete'
+    expect(page).to_not have_content 'Frozen'
+    expect(page).to_not have_content 3
+  end
 end
